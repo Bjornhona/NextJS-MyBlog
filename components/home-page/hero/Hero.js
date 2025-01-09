@@ -3,7 +3,7 @@ import classes from './hero.module.css';
 
 const Hero = () => {
   return (
-    <div className={classes.hero}>
+    <section className={classes.hero}>
       <div className={classes.image}>
         <Image
           src="/images/site/me.jpg"
@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
       <h1>Hi, I'm Åsa</h1>
       <p>I blog about Web Development - especially frontend frameworks like React or React Native.</p>
-    </div>
+    </section>
   )
 }
 
