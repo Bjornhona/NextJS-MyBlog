@@ -1,11 +1,30 @@
-const postPage = () => {
+import PostContent from "@/components/posts/post-detail/post-content/PostContent";
+import { getPostData, getPostFiles } from "@/lib/posts-util";
+
+const PostPage = ({post}) => {
   return (
-    <div>
-      <h1>My Blog</h1>
-      <h2>First Post</h2>
-      <p>This is the content of my first blog post.</p>
-    </div>
+    <PostContent post={post} />
   );
 }
 
-export default postPage;
+export const getStaticProps = (context) => {
+  const { slug } = context.params;
+  const post = getPostData(slug);
+  return {
+    props: {
+      post
+    },
+    revalidate: 600
+  }
+}
+
+export const getStaticPaths = (context) => {
+  const postFiles = getPostFiles();
+  const paths = postFiles.map(file => ({ params: { slug: file.replace(/\.md$/, '') } }));
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export default PostPage;

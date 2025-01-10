@@ -12,7 +12,13 @@ const PostItem = ({post}) => {
     <li className={classes.post}>
       <Link href={`/blog/${slug}`}>
         <div className={classes.image}>
-          <Image src={`/images/posts/${slug}/${image}`} alt={'image'} width={300} height={200} />
+          <Image
+            src={`/images/posts/${slug}/${image}`}
+            alt={'image'}
+            width={300}
+            height={200}
+            layout={'responsive'} // fills out the surrounding container and shrink and grow together with that container.
+          />
         </div>
         <div className={classes.content}>
           <h3>{title}</h3>

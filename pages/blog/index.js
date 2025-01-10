@@ -1,17 +1,17 @@
-const BlogPage = () => {
-  return (
-    <div>
-      <h1>My Blog</h1>
-      <ul>
-        <li>
-          <a href="/blog/first-post">First Post</a>
-        </li>
-        <li>
-          <a href="/blog/second-post">Second Post</a>
-        </li>
-      </ul>
-    </div>
-  );
+import AllPosts from '@/components/posts/all-posts/AllPosts';
+import { getAllPosts } from '@/lib/posts-util';
+
+const BlogPage = ({posts}) => {
+  return <AllPosts posts={posts} />;
+}
+
+export const getStaticProps = () => {
+  const allPosts = getAllPosts();
+  return {
+    props: {
+      posts: allPosts,
+    },
+  }
 }
 
 export default BlogPage;
