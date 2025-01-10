@@ -18,7 +18,7 @@ export const getStaticProps = (context) => {
   }
 }
 
-export const getStaticPaths = (context) => {
+export const getStaticPaths = () => {
   const postFiles = getPostFiles();
   const paths = postFiles.map(file => ({ params: { slug: file.replace(/\.md$/, '') } }));
   return {

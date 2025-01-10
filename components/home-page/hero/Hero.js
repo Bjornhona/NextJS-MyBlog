@@ -10,6 +10,7 @@ const Hero = () => {
           alt="Me saying hello!"
           width={300}
           height={300}
+          priority
         />
       </div>
       <h1>Hi, I'm Åsa</h1>
